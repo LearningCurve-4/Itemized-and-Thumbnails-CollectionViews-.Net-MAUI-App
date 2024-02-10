@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ItemizedThumbnailsList.Views.Pages.ItemListPage"
+    xmlns:c="clr-namespace:ItemizedThumbnailsList.Helpers.Converters"
+    xmlns:av="clr-namespace:ItemizedThumbnailsList.Views.AuxiliaryViews"
+    xmlns:rv="clr-namespace:ItemizedThumbnailsList.Views.ReuseableViews"
+    xmlns:vm="clr-namespace:ItemizedThumbnailsList.ViewModels"
+    x:DataType="vm:ItemListViewModel">
+
+    <ContentPage.BindingContext>
+        <vm:ItemListViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <c:ToggleConverter x:Key="Toggle" />
+    </ContentPage.Resources>
+
+    <Grid
+        RowDefinitions="60,*"
+        ColumnDefinitions="*">
+
+        <!--Header-->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            RowDefinitions="*"
+            ColumnDefinitions="40,*"
+            ColumnSpacing="10"
+            Padding="5,0"
+            BackgroundColor="{StaticResource HeaderBarFillColor}">
+
+            <rv:BackImageView
+                Grid.Row="0"
+                Grid.Column="0"/>
+
+            <Label 
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Multi-Views List"
+                FontSize="20"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource HeaderBarFillTextColor}"/>
+
+            <rv:BusyIndicatorView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"/>
+        </Grid>
+
+        <!--Body-->
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            RowDefinitions="35,4,*"
+            ColumnDefinitions="*,*"
+            RowSpacing="5"
+            Padding="5">
+
+            <!--#region Tab-->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0"
+                RowDefinitions="*"
+                ColumnDefinitions="35,*"
+                ColumnSpacing="10"
+                HorizontalOptions="Center">
+
+                <Image  
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HeightRequest="35"
+                    WidthRequest="35"
+                    Source="{Binding IsItemizedView, Converter={StaticResource Toggle}, ConverterParameter=ItemizedListEnable_ItemizedListDisable_IS}" />
+
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Itemized"
+                    TextColor="{Binding IsItemizedView, Converter={StaticResource Toggle}, ConverterParameter=BorderColor_UnderlineColor_RK}"
+                    FontSize="18"
+                    VerticalTextAlignment="Center"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding SwitchViewCommand, Mode=OneTime}"
+                        CommandParameter="ItemizedView" />
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                RowDefinitions="*"
+                ColumnDefinitions="35,*"
+                ColumnSpacing="10"
+                HorizontalOptions="Center">
+
+                <Image  
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HeightRequest="35"
+                    WidthRequest="35"
+                    Source="{Binding IsThumbnailView, Converter={StaticResource Toggle}, ConverterParameter=ThumbnailListEnable_ThumbnailListDisable_IS}" />
+
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Thumbnail"
+                    TextColor="{Binding IsThumbnailView, Converter={StaticResource Toggle}, ConverterParameter=BorderColor_UnderlineColor_RK}"
+                    FontSize="18"
+                    VerticalTextAlignment="Center"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding SwitchViewCommand, Mode=OneTime}"
+                        CommandParameter="ThumbnailView" />
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <BoxView
+                Grid.Row="1"
+                Grid.Column="0"
+                HeightRequest="4"
+                BackgroundColor="{Binding IsItemizedView, Converter={StaticResource Toggle}, ConverterParameter=BorderColor_UnderlineColor_RK}"
+                IsVisible="{Binding IsItemizedView}" />
+
+            <BoxView
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="4"
+                BackgroundColor="{Binding IsThumbnailView, Converter={StaticResource Toggle}, ConverterParameter=BorderColor_UnderlineColor_RK}"
+                IsVisible="{Binding IsThumbnailView}" />
+
+            <BoxView
+                Grid.Row="1"
+                Grid.Column="0"
+                HeightRequest="1"
+                BackgroundColor="{DynamicResource UnderlineColor}"
+                VerticalOptions="End"
+                IsVisible="{Binding IsThumbnailView}" />
+
+            <BoxView
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="1"
+                BackgroundColor="{DynamicResource UnderlineColor}"
+                VerticalOptions="End"
+                IsVisible="{Binding IsItemizedView}" />
+            <!--#endregion-->
+
+            <!--#region Tab View-->
+            <av:ItemizedListView
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                IsVisible="{Binding IsItemizedView}">
+            </av:ItemizedListView>
+
+            <av:ThumbnailListView
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                IsVisible="{Binding IsThumbnailView}">
+            </av:ThumbnailListView>
+            <!--#endregion-->
+        </Grid>
+
+        <!--Footer-->
+    </Grid>
+</ContentPage>

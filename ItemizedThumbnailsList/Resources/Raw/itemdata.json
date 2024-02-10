@@ -1,0 +1,250 @@
+﻿[
+	{
+		"PosNo": 1,
+		"ItemCode": "I0001",
+		"ItemTitle": "Chicken Rice",
+		"ItemImage": "chicken.png",
+		"ItemUnitPrice": 10.50,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 2,
+		"ItemCode": "I0002",
+		"ItemTitle": "Noodles",
+		"ItemImage": "noodle.png",
+		"ItemUnitPrice": 13.75,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 3,
+		"ItemCode": "I0003",
+		"ItemTitle": "Fish Curry",
+		"ItemImage": "fish.png",
+		"ItemUnitPrice": 9.80,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 4,
+		"ItemCode": "I0004",
+		"ItemTitle": "Stingray BBQ",
+		"ItemImage": "bbq.png",
+		"ItemUnitPrice": 25.00,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 5,
+		"ItemCode": "I0005",
+		"ItemTitle": "Spicy Crab",
+		"ItemImage": "crab.png",
+		"ItemUnitPrice": 35.00,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 6,
+		"ItemCode": "I0006",
+		"ItemTitle": "Lemon Tea",
+		"ItemImage": "hottea.png",
+		"ItemUnitPrice": 3.00,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 7,
+		"ItemCode": "I0007",
+		"ItemTitle": "Ginger Tea",
+		"ItemImage": "hottea.png",
+		"ItemUnitPrice": 3.65,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 8,
+		"ItemCode": "I0008",
+		"ItemTitle": "Iced Tea",
+		"ItemImage": "icetea.png",
+		"ItemUnitPrice": 2.90,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 9,
+		"ItemCode": "I0009",
+		"ItemTitle": "Coconut Juice",
+		"ItemImage": "coconutjuice.png",
+		"ItemUnitPrice": 4.00,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 10,
+		"ItemCode": "I0010",
+		"ItemTitle": "Orange Juice",
+		"ItemImage": "freshjuice.png",
+		"ItemUnitPrice": 5.00,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 11,
+		"ItemCode": "I0011",
+		"ItemTitle": "Watermelon Juice",
+		"ItemImage": "freshjuice.png",
+		"ItemUnitPrice": 5.00,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 12,
+		"ItemCode": "I0012",
+		"ItemTitle": "Apple Juice",
+		"ItemImage": "freshjuice.png",
+		"ItemUnitPrice": 5.00,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 13,
+		"ItemCode": "I0013",
+		"ItemTitle": "Soft Drink",
+		"ItemImage": "icetea.png",
+		"ItemUnitPrice": 1.95,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 14,
+		"ItemCode": "I0014",
+		"ItemTitle": "Still Water",
+		"ItemImage": "waterbottle.png",
+		"ItemUnitPrice": 0.95,
+		"ItemCategory": "Water"
+	},
+	{
+		"PosNo": 15,
+		"ItemCode": "I0015",
+		"ItemTitle": "Sparkling Water",
+		"ItemImage": "waterbottle.png",
+		"ItemUnitPrice": 1.70,
+		"ItemCategory": "Water"
+	},
+	{
+		"PosNo": 16,
+		"ItemCode": "I0016",
+		"ItemTitle": "Chicken Rice Combo Set",
+		"ItemImage": "chicken.png",
+		"ItemUnitPrice": 13.00,
+		"ItemCategory": "Set Meal"
+	},
+	{
+		"PosNo": 17,
+		"ItemCode": "I0017",
+		"ItemTitle": "Spicy Crab Combo Set",
+		"ItemImage": "crab.png",
+		"ItemUnitPrice": 41.50,
+		"ItemCategory": "Set Meal"
+	},
+	{
+		"PosNo": 18,
+		"ItemCode": "I0018",
+		"ItemTitle": "Omelette",
+		"ItemImage": "omelette.png",
+		"ItemUnitPrice": 2.10,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 19,
+		"ItemCode": "I0019",
+		"ItemTitle": "Pizza",
+		"ItemImage": "pizza.png",
+		"ItemUnitPrice": 4.60,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 20,
+		"ItemCode": "I0020",
+		"ItemTitle": "Burger",
+		"ItemImage": "burger.png",
+		"ItemUnitPrice": 8.00,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 21,
+		"ItemCode": "I0021",
+		"ItemTitle": "Sandwich",
+		"ItemImage": "sandwich.png",
+		"ItemUnitPrice": 5.20,
+		"ItemCategory": "Main Course"
+	},
+	{
+		"PosNo": 22,
+		"ItemCode": "I0022",
+		"ItemTitle": "Bento Set",
+		"ItemImage": "bentoset.png",
+		"ItemUnitPrice": 9.80,
+		"ItemCategory": "Set Meal"
+	},
+	{
+		"PosNo": 23,
+		"ItemCode": "I0023",
+		"ItemTitle": "Burger Set",
+		"ItemImage": "burgerset.png",
+		"ItemUnitPrice": 10.50,
+		"ItemCategory": "Set Meal"
+	},
+	{
+		"PosNo": 24,
+		"ItemCode": "I0024",
+		"ItemTitle": "Coffee",
+		"ItemImage": "coffee.png",
+		"ItemUnitPrice": 1.45,
+		"ItemCategory": "Beverages"
+	},
+	{
+		"PosNo": 25,
+		"ItemCode": "I0025",
+		"ItemTitle": "Pie Cake",
+		"ItemImage": "piecake.png",
+		"ItemUnitPrice": 11.90,
+		"ItemCategory": "Bakery Items"
+	},
+	{
+		"PosNo": 26,
+		"ItemCode": "I0026",
+		"ItemTitle": "Cake",
+		"ItemImage": "cake.png",
+		"ItemUnitPrice": 7.50,
+		"ItemCategory": "Bakery Items"
+	},
+	{
+		"PosNo": 27,
+		"ItemCode": "I0027",
+		"ItemTitle": "Muffin",
+		"ItemImage": "muffin.png",
+		"ItemUnitPrice": 1.30,
+		"ItemCategory": "Bakery Items"
+	},
+	{
+		"PosNo": 28,
+		"ItemCode": "I0028",
+		"ItemTitle": "Long Loaf",
+		"ItemImage": "longloaf.png",
+		"ItemUnitPrice": 2.15,
+		"ItemCategory": "Bakery Items"
+	},
+	{
+		"PosNo": 29,
+		"ItemCode": "I0029",
+		"ItemTitle": "Pretzel",
+		"ItemImage": "pretzel.png",
+		"ItemUnitPrice": 1.90,
+		"ItemCategory": "Bakery Items"
+	},
+	{
+		"PosNo": 30,
+		"ItemCode": "I0030",
+		"ItemTitle": "Bar Ice Cream",
+		"ItemImage": "baricecream.png",
+		"ItemUnitPrice": 1.00,
+		"ItemCategory": "Ice Cream"
+	},
+	{
+		"PosNo": 31,
+		"ItemCode": "I0031",
+		"ItemTitle": "Cone Ice Cream",
+		"ItemImage": "coneicecream.png",
+		"ItemUnitPrice": 1.10,
+		"ItemCategory": "Ice Cream"
+	}
+]

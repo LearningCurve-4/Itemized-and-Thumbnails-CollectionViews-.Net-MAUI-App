@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ItemizedThumbnailsList.Views.Pages.ItemDetailPage"
+    xmlns:rv="clr-namespace:ItemizedThumbnailsList.Views.ReuseableViews"
+    xmlns:vm="clr-namespace:ItemizedThumbnailsList.ViewModels"
+    x:DataType="vm:ItemDetailViewModel">
+
+    <ContentPage.BindingContext>
+        <vm:ItemDetailViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid
+        RowDefinitions="60,*"
+        ColumnDefinitions="*">
+
+        <!--Header-->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            RowDefinitions="*"
+            ColumnDefinitions="40,*"
+            ColumnSpacing="10"
+            Padding="5,0"
+            BackgroundColor="{StaticResource HeaderBarFillColor}">
+
+            <rv:BackImageView
+                Grid.Row="0"
+                Grid.Column="0"/>
+
+            <Label 
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Item Detail"
+                FontSize="22"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource HeaderBarFillTextColor}"/>
+
+            <rv:BusyIndicatorView
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"/>
+        </Grid>
+
+        <!--Body-->
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            RowDefinitions="180,25,30,30,10,1,*"
+            ColumnDefinitions="*"
+            Padding="10"
+            HorizontalOptions="Fill">
+
+            <Border
+                Grid.Row="0" 
+                Grid.Column="0"
+                StrokeShape="RoundRectangle 90"
+                Stroke="{StaticResource BorderColor}"
+                BackgroundColor="{StaticResource FillColor}"
+                HeightRequest="180"
+                WidthRequest="180">
+
+                <Image 
+                    Source="{Binding ItemDetail.ItemImage, Mode=OneTime}"
+                    HeightRequest="150"
+                    WidthRequest="150"/>
+            </Border>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="{Binding ItemDetail.PosNo, StringFormat='#{0}', Mode=OneTime}"
+                TextColor="{StaticResource PageFillTextColor}"
+                FontSize="22"
+                LineBreakMode="TailTruncation"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"/>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="{Binding ItemDetail.ItemTitle, Mode=OneTime}"
+                TextColor="{StaticResource PageFillTextColor}"
+                FontSize="22"
+                LineBreakMode="TailTruncation"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"/>
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="{Binding ItemDetail.ItemUnitPrice, StringFormat='$ {0:N2}', Mode=OneTime}"
+                TextColor="{StaticResource PageFillTextColor}"
+                FontSize="22"
+                LineBreakMode="TailTruncation"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"/>
+
+            <BoxView
+                Grid.Row="5" 
+                Grid.Column="0"
+                BackgroundColor="{StaticResource BorderColor}"
+                HeightRequest="1"/>
+        </Grid>
+
+        <!--Footer-->
+    </Grid>
+</ContentPage>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ItemizedThumbnailsList.Views.AuxiliaryViews.ItemizedListView"
+    xmlns:c="clr-namespace:ItemizedThumbnailsList.Helpers.Converters"
+    xmlns:m="clr-namespace:ItemizedThumbnailsList.Models"
+    xmlns:vm="clr-namespace:ItemizedThumbnailsList.ViewModels"
+    x:DataType="vm:ItemListViewModel"
+    CompressedLayout.IsHeadless="True">
+
+    <Grid.Resources>
+        <c:BandedRowsConverter x:Key="BandedRows" />
+    </Grid.Resources>
+
+    <ScrollView
+        Orientation="Horizontal"
+        HorizontalScrollBarVisibility="Never">
+
+        <StackLayout
+            CompressedLayout.IsHeadless="True">
+
+            <!--List Header-->
+            <Grid
+                RowDefinitions="1,30,1"
+                ColumnDefinitions="5,30,50,70,200,80,150,5"
+                ColumnSpacing="8"
+                BackgroundColor="{StaticResource ColumnBarFillColor}">
+
+                <BoxView
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="8"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="No."
+                    TextColor="{StaticResource PageFillTextColor}"
+                    HorizontalTextAlignment="End"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Image"
+                    TextColor="{StaticResource PageFillTextColor}"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Text="Code"
+                    TextColor="{StaticResource PageFillTextColor}"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Text="Description"
+                    TextColor="{StaticResource PageFillTextColor}"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="5"
+                    Text="Unit Price"
+                    TextColor="{StaticResource PageFillTextColor}"
+                    HorizontalTextAlignment="End"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="6"
+                    Text="Item Category"
+                    TextColor="{StaticResource PageFillTextColor}"/>
+
+                <BoxView
+                    Grid.Row="2" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="8"/>
+            </Grid>
+
+            <!--List Body-->
+            <CollectionView
+                x:Name="itemlist"
+                HeightRequest="{Binding ScreenHeight}"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                BackgroundColor="{StaticResource PageFillColor}"
+                VerticalScrollBarVisibility="Never"
+                ItemsSource="{Binding ItemList}"
+                Scrolled="List_Scrolled">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout 
+                        Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.EmptyView>
+                    <Label
+                        Text="No record found."
+                        TextColor="{StaticResource PageFillTextColor}"/>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:ItemModel">
+                        <Grid
+                            RowDefinitions="50"
+                            ColumnDefinitions="5,30,50,70,200,80,150,5"
+                            ColumnSpacing="8"
+                            BackgroundColor="{Binding .,Converter={StaticResource BandedRows}, ConverterParameter={x:Reference itemlist}}">
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="{Binding PosNo, Mode=OneTime}"
+                                TextColor="{StaticResource PageFillTextColor}"
+                                HorizontalTextAlignment="End"/>
+
+                            <Border
+                                Grid.Row="0" 
+                                Grid.Column="2"
+                                StrokeShape="RoundRectangle 20"
+                                Stroke="{StaticResource BorderColor}"
+                                BackgroundColor="{StaticResource FillColor}"
+                                HeightRequest="40"
+                                WidthRequest="40">
+
+                                <Image 
+                                    Source="{Binding ItemImage, Mode=OneTime}"
+                                    HeightRequest="30"
+                                    WidthRequest="30"/>
+                            </Border>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                Text="{Binding ItemCode, Mode=OneTime}"
+                                TextColor="{StaticResource PageFillTextColor}"/>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="4"
+                                Text="{Binding ItemTitle, Mode=OneTime}"
+                                TextColor="{StaticResource PageFillTextColor}"/>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="5"
+                                Text="{Binding ItemUnitPrice, StringFormat='{0:N2}', Mode=OneTime}"
+                                TextColor="{StaticResource PageFillTextColor}"
+                                HorizontalTextAlignment="End"/>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="6"
+                                Text="{Binding ItemCategory, Mode=OneTime}"
+                                TextColor="{StaticResource PageFillTextColor}"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Path=BindingContext.ItemDetailCommand, Mode=OneTime, Source={x:Reference itemlist}}"
+                                    CommandParameter="{Binding ItemCode, StringFormat='ItemDetailPage,{0}'}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--List Footer-->
+            <Grid
+                RowDefinitions="1,30,1"
+                ColumnDefinitions="5,*,5"
+                ColumnSpacing="8"
+                BackgroundColor="{StaticResource ColumnBarFillColor}">
+
+                <BoxView
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="8"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="End of list"
+                    TextColor="{StaticResource PageFillTextColor}"/>
+
+                <BoxView
+                    Grid.Row="2" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="8"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+
+    <Button
+        x:Name="ScrollTop"
+        ImageSource="{DynamicResource UpTop}"
+        HeightRequest="50"
+        WidthRequest="50"
+        CornerRadius="25"
+        Margin="0,0,15,15"
+        HorizontalOptions="End"
+        VerticalOptions="End"
+        BackgroundColor="{StaticResource UnderlineColor}"
+        Clicked="ScrollTop_Clicked" />
+</Grid>
